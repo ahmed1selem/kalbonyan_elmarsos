@@ -1,0 +1,115 @@
+/** {
+  margin: 0;
+  padding: 0;
+}*/
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.container {
+  border: 5px solid #0b0b0b;
+  width: 820px;
+  margin: 0 auto;
+}
+h2 {
+  background-color: #f7f7f7;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px;
+}
+h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+strong {
+  font-size: 22px;
+}
+#sipping_State {
+  color: #737373;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #777;
+  line-height: 0;
+  margin: 0px;
+}
+.product-info {
+  line-height: 0;
+  margin: 0px 0px;
+}
+a {
+  color: #1a1414;
+}
+/*a:link {
+  tex-decoration: none;
+}*/
+a:visited {
+  color: #1098ad;
+}
+a:hover {
+  color: rgb(7, 6, 5);
+  text-decoration: none;
+}
+a:active {
+  background-color: black;
+}
+li {
+  list-style-type: square;
+}
+button {
+  color: aliceblue;
+  text-transform: uppercase;
+  background-color: black;
+  border-top: 4px solid;
+  cursor: pointer;
+  font-size: 20px;
+  width: 100%;
+  /*   padding-right: 345px ;
+  padding-left: 340px ;
+ */
+}
+button:hover {
+  background-color: aliceblue;
+  color: #1a1414;
+}
+h2::after {
+  content: "SALE";
+  background-color: red;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  position: absolute;
+  top: -6px;
+  left: 320px;
+  letter-spacing: 2.5px;
+}
+
+.box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 5px solid rgba(255, 255, 255, 1);
+}
+
+.blue {
+  background: blue;
+}
+
+.red {
+  background: red;
+}
+
+.black {
+  background: black;
+}
+.green {
+  background: green;
+}
+.brown {
+  background: brown;
+}
+.yellow {
+  background: yellow;
+}
