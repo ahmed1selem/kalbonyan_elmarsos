@@ -1,0 +1,12 @@
+let bill = 275;
+let tip = 50 <= bill <= 200 ? bill * 0.15 : bill * 0.2;
+console.log(bill + tip);
+console.log(bill, tip);
+bill = 40;
+tip = 50 <= bill && bill <= 200 ? bill * 0.15 : bill * 0.2;
+console.log(bill + tip);
+console.log(bill, tip);
+bill = 430;
+tip = 50 <= bill && bill <= 200 ? bill * 0.15 : bill * 0.2;
+console.log(bill + tip);
+console.log(bill, tip);

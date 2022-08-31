@@ -3,3 +3,18 @@ JS SCRTIPT is a dynamic type
 if you didn't use let..etc the data decalierd in the general scoop
 + used for conctention 
 ++ and -- work in JS
+you can use `` in the conctention process you better use it all the way
+you can use round fun
+you can use number func and String fun
+you can convert number string boolian 
+java will make the work for you if you didn't conv types such if you used
+the + will concatonat  them 
+the - will sub them the same is + and / and it called type courtion
+let n='1'+1
+n=n-1 
+n=10
+falsy val:
+0,"",undefined,null,Nan,false 
+the empty is true not false 
+=== is strict bcz dosen't typr courtion '== is not cuz it dose type courtion
+the lose is not good use strict only 
