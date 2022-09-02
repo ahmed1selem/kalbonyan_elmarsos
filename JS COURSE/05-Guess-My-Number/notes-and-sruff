@@ -1,0 +1,12 @@
+the dom is a roote that has all of the element underneth it 
+the quarryselc is what gets the the wanted element
+if you want to make an action so it's mendatory that you add a function
+    expertion to the quarryselc methode which will work as the actor to 
+    the action and it called as soon as the event happens 
+trunc dosen't has 1 so you add 1    
+state varible is every var is part of the satte of the applectoion so
+  it is acc by the whole code 
+to use the dom you need =" "  
+you need to use .style if you want to cahnge style in css \
+refactoring
+ is to restructed code but with cahnge in the functionalty of the applectoion
