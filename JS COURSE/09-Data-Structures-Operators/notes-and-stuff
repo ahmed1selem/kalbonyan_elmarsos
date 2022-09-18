@@ -1,0 +1,32 @@
+the spread operator
+is actually a bit similar to destructuring,
+because it also helps us get elements out of arrays.
+Now, the big difference is that the spread operator
+takes all the elements from the array
+and it also doesn't create new variables.
+And as a consequence, we can only use it
+in places where we would otherwise
+write values separated by commas.
+the spread operator
+works in all irtables among them are array
+
+multiple values separated by a comma
+are usually only expected
+when we pass arguments into a function,
+or when we build a new array.
+short circuiting evalouation
+if the first value is a truthy vaule so it
+will reaturn it without locking to more data
+if the or didn't find a truthy val it will return the last
+val checked no matter of it's condition
+in and it's the contrary it reaturn the last one
+you can right that
+restaurant.orderPasta&&restaurant.orderPizza('mushrooms','spinach')
+insted of if in both || and &&
+The Nullish Coalescing Operator (??)
+is the same as || but insted of falsy valeus we have
+Nullish val=null and undifined
+And so basically, what the logical
+and assignment operator does
+is to assign a value to a variable
+if it is currently truthy.
