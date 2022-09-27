@@ -331,7 +331,7 @@ btnSort.addEventListener('click', function (e) {
   displayMovements(currentAccount, !sorted);
   sorted = !sorted;
 });
-
+/*
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
