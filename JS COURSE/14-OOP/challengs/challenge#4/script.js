@@ -24,22 +24,27 @@ class EV extends Car {
   #charge;
   constructor(make, speed, charge) {
     super(make, speed);
-    this.charge = charge;
+    this.#charge = charge;
   }
   chargeBattary(chargeTo) {
-    this.charge = chargeTo;
-    console.log(this.charge);
+    this.#charge = chargeTo;
+    console.log(this.#charge);
     return this;
   }
   Accelerate() {
     this.speed += 20;
-    this.charge--;
-    console.log(this.charge, 'from acc');
+    this.#charge--;
+    console.log(this.#charge, 'from acc');
     console.log(
-      `${this.make} is going on ${this.speed} and a charge of ${this.charge} %`
+      `${this.make} is going on ${this.speed} and a charge of ${this.#charge} %`
     );
     return this;
   }
 }
 const Rivian = new EV('Rivian', 120, 23);
-Rivian.Accelerate().chargeBattary(20).break();
+Rivian.Accelerate()
+  .chargeBattary(20)
+  .break()
+  .Accelerate()
+  .chargeBattary(20)
+  .break();
