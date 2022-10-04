@@ -1,4 +1,8 @@
-var budget = [
+'strict mode';
+
+// const { reduce } = require('lodash-es');
+
+const budget = Object.freeze([
   { value: 250, description: 'Sold old TV 📺', user: 'jonas' },
   { value: -45, description: 'Groceries 🥑', user: 'jonas' },
   { value: 3500, description: 'Monthly salary 👩‍💻', user: 'jonas' },
@@ -7,58 +11,70 @@ var budget = [
   { value: -20, description: 'Candy 🍭', user: 'matilda' },
   { value: -125, description: 'Toys 🚂', user: 'matilda' },
   { value: -1800, description: 'New Laptop 💻', user: 'jonas' },
-];
+]);
 
-var limits = {
+const spendingLimits = Object.freeze({
   jonas: 1500,
   matilda: 100,
+});
+
+const getLimit = (limits, user) => limits?.[user] ?? 0;
+
+const addExpense = function (state, limit, value, description, user = 'jonas') {
+  const cleanUser = user.toLowerCase();
+
+  // const limit = spendingLimits[user] ? spendingLimits[user] : 0;
+
+  return value <= getLimit(spendingLimits, cleanUser)
+    ? [...state, { value: -value, description, user: cleanUser }]
+    : state;
+  // budget.push({ value: -value, description, user:cleanUser });
 };
+const newBudget1 = addExpense(budget, spendingLimits, 10, 'Pizza 🍕');
+const newBudget2 = addExpense(
+  newBudget1,
+  spendingLimits,
+  90,
+  'Going to movies 🍿',
+  'Matilda'
+);
 
-var add = function (value, description, user) {
-  if (!user) user = 'jonas';
-  user = user.toLowerCase();
+const newBudget3 = addExpense(newBudget2, spendingLimits, 200, 'Stuff', 'Jay');
+console.log(newBudget3);
+// const checkExpenses2 = function (state, limits) {
+//   return state.map(entery => {
+//     return entery.value < -getLimit(limits, entery.user)
+//       ? { ...entery, flag: 'limit' }
+//       : entery;
+//   });
+// for (const entery of newBudget3)
+//   if (entery.value < -getLimit(spendingLimits, entery.user))
+//     entery.flag = 'limit';
+// };
+const checkExpenses = (state, limits) =>
+  state.map(entery => {
+    return entery.value < -getLimit(limits, entery.user)
+      ? { ...entery, flag: 'limit' }
+      : entery;
+  });
 
-  var lim;
-  if (limits[user]) {
-    lim = limits[user];
-  } else {
-    lim = 0;
-  }
+const finalbudget = checkExpenses(newBudget3, spendingLimits);
+console.log(finalbudget);
+const logbigExpenses = function (state, bigLimt) {
+  const bigExpenses = state
+    .filter(entery => entery.value <= -bigLimt)
+    .reduce((str, cur) => `${str} /${cur.description.slice(-2)}`, '');
+  console.log(bigExpenses);
+  // .map(entery => entery.description.slice(-2))
+  // .join(' / ');
 
-  if (value <= lim) {
-    budget.push({ value: -value, description: description, user: user });
-  }
+  // let output = '';
+  // for (const entery of budget)
+  //   output +=
+  //     entery.value <= -bigLimt ? ` ${entery.description.slice(-2)}  / ` : '';
+
+  // output = output.slice(0, -2); // Remove last '/ '
+  // console.log(output);
 };
-add(10, 'Pizza 🍕');
-add(100, 'Going to movies 🍿', 'Matilda');
-add(200, 'Stuff', 'Jay');
 console.log(budget);
-
-var check = function () {
-  for (var el of budget) {
-    var lim;
-    if (limits[el.user]) {
-      lim = limits[el.user];
-    } else {
-      lim = 0;
-    }
-
-    if (el.value < -lim) {
-      el.flag = 'limit';
-    }
-  }
-};
-check();
-
-console.log(budget);
-
-var bigExpenses = function (limit) {
-  var output = '';
-  for (var el of budget) {
-    if (el.value <= -limit) {
-      output += el.description.slice(-2) + ' / '; // Emojis are 2 chars
-    }
-  }
-  output = output.slice(0, -2); // Remove last '/ '
-  console.log(output);
-};
+logbigExpenses(finalbudget, 100);
